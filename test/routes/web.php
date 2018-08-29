@@ -13,4 +13,18 @@
 
 Route::get('/', function () {
     return view('welcome');
+})->name('home');
+
+/*
+Route::get('/prueba',function(){
+    return view('prueba');
+})->name('miPrueba');
+*/
+
+//Route::get('/pruebas','PaginasController@prueba')->middleware('admin');
+
+Route::middleware('admin')->group(function(){
+    
+    Route::get('/pruebas','PaginasController@prueba');
+    Route::get('/reportes','PaginasController@prueba');
 });
